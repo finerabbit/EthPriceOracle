@@ -1,0 +1,17 @@
+{
+  "name": "EthPriceOracle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "LuckyRabbit",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "bn.js": "^5.1.3",
+    "openzeppelin-solidity": "^3.3.0"
+  }
+}
