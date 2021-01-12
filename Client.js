@@ -26,7 +26,7 @@ async function filterEvents (callerContract) {
     console.log('* New PriceUpdated event. ethPrice: ' + event.returnValues.ethPrice)
   })
   callerContract.events.ReceivedNewRequestIdEvent({ filter: { } }, async (err, event) => {
-    if (err) console.error('Error on event', err)
+    if (err) console.error('Error on event', err);
   })
 }
 
