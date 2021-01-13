@@ -33,7 +33,7 @@ async function filterEvents (callerContract) {
 async function init () {
   const { ownerAddress, web3js, client } = common.loadAccount(PRIVATE_KEY_FILE_NAME)
   const callerContract = await getCallerContract(web3js)
-  filterEvents(callerContract)
+  filterEvents(callerContract);
   return { callerContract, ownerAddress, client, web3js }
 }
 
