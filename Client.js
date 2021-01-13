@@ -23,7 +23,7 @@ async function retrieveLatestEthPrice () {
 async function filterEvents (callerContract) {
   callerContract.events.PriceUpdatedEvent({ filter: { } }, async (err, event) => {
     if (err) console.error('Error on event', err);
-    console.log('* New PriceUpdated event. ethPrice: ' + event.returnValues.ethPrice)
+    console.log('* New PriceUpdated event. ethPrice: ' + event.returnValues.ethPrice);
   })
   callerContract.events.ReceivedNewRequestIdEvent({ filter: { } }, async (err, event) => {
     if (err) console.error('Error on event', err);
