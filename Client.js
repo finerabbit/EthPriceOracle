@@ -45,7 +45,7 @@ async function init () {
     process.exit( );
   })
   const networkId = await web3js.eth.net.getId();
-  const oracleAddress =  OracleJSON.networks[networkId].address
+  const oracleAddress =  OracleJSON.networks[networkId].address;
   await callerContract.methods.setOracleInstanceAddress(oracleAddress).send({ from: ownerAddress });
   setInterval( async () => {
     await callerContract.methods.updateEthPrice().send({ from: ownerAddress });
