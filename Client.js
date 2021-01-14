@@ -5,7 +5,7 @@ const CallerJSON = require('./caller/build/contracts/CallerContract.json')
 const OracleJSON = require('./oracle/build/contracts/EthPriceOracle.json')
 
 async function getCallerContract (web3js) {
-  const networkId = await web3js.eth.net.getId()
+  const networkId = await web3js.eth.net.getId();
   return new web3js.eth.Contract(CallerJSON.abi, CallerJSON.networks[networkId].address)
 }
 
