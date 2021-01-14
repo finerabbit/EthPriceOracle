@@ -16,25 +16,25 @@ async function retrieveLatestEthPrice () {
       symbol: 'ETHUSDT'
     },
     method: 'get'
-  })
-  return resp.data.price
+  });
+  return resp.data.price;
 }
 
 async function filterEvents (callerContract) {
   callerContract.events.PriceUpdatedEvent({ filter: { } }, async (err, event) => {
     if (err) console.error('Error on event', err);
     console.log('* New PriceUpdated event. ethPrice: ' + event.returnValues.ethPrice);
-  })
+  });
   callerContract.events.ReceivedNewRequestIdEvent({ filter: { } }, async (err, event) => {
     if (err) console.error('Error on event', err);
-  })
+  });
 }
 
 async function init () {
   const { ownerAddress, web3js, client } = common.loadAccount(PRIVATE_KEY_FILE_NAME);
   const callerContract = await getCallerContract(web3js);
   filterEvents(callerContract);
-  return { callerContract, ownerAddress, client, web3js }
+  return { callerContract, ownerAddress, client, web3js };
 }
 
 (async () => {
