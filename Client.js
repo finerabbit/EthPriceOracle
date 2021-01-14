@@ -38,7 +38,7 @@ async function init () {
 }
 
 (async () => {
-  const { callerContract, ownerAddress, client, web3js } = await init()
+  const { callerContract, ownerAddress, client, web3js } = await init();
   process.on( 'SIGINT', () => {
     console.log('Calling client.disconnect()');
     client.disconnect();
