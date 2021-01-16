@@ -3167,9 +3167,82 @@
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x441e3b056b114797955165bd03bb8393fc1658a713f09225de4745a8d068bf7d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "oracleAddress",
+              "type": "address"
+            }
+          ],
+          "name": "newOracleAddressEvent",
+          "type": "event"
+        },
+        "0x7dda6c4d82f5a08c8847ea1a4ca36e672ae687d313dacc894a7b6b9a2aaf1327": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "priceUpdatedEvent",
+          "type": "event"
+        },
+        "0x5f0df31d0327643fa1dd320583b974426d24351a677c7dcd9b89362542239af8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "receivedNewRequestIdEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xa16c3260d4d5670D27bE37a78B940C50dFf337AD",
+      "transactionHash": "0x4eaa62c7f92aec690220fff7e3409bfccd4399d2a2f81fd7f42992e682ce85f6"
+    }
+  },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-01-10T13:56:19.347Z",
+  "updatedAt": "2021-01-14T19:03:49.407Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {
       "isOwner()": {

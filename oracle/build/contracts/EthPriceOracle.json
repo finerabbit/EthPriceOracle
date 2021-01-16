@@ -3286,9 +3286,75 @@
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5": {
+      "events": {
+        "0x3d50a0c24e97813f35595d2f1f37dbf421d5e97f37abd4e222853e9b9c82c8d5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "callerAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "GetLatestEthPriceEvent",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x91b860381268a473101de3379abbb70abf7ea6c9d1735cf58b9816479ff3b727": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethPrice",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "callerAddress",
+              "type": "address"
+            }
+          ],
+          "name": "SetLatestEthPriceEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x32D6d0808a008bDa3eD38bff9b125c49468E9c34",
+      "transactionHash": "0x46300bbd1852b1c2c9bd747e3ee518cf44e853968a87cccfd71ecec7435ba332"
+    }
+  },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-01-10T18:36:05.753Z",
+  "updatedAt": "2021-01-14T20:17:19.563Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {
       "isOwner()": {

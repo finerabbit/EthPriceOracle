@@ -5,7 +5,7 @@ const OracleJSON = require('./oracle/build/contracts/EthPriceOracle.json');
 var pendingRequests = [];
 
 async function getOracleContract(web3js) {
-    return new web3js.eth.Contract(OracleJSON.abi, 0x00);
+    return new web3js.eth.Contract(OracleJSON.abi, 0x32D6d0808a008bDa3eD38bff9b125c49468E9c34);
 }
 
 async function retrieveLatestEthPrice() {
