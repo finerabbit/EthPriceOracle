@@ -37,37 +37,30 @@ async function init () {
   const networkId = await web3js.eth.net.getId();
   const oracleAddress =  OracleJSON.networks[networkId].address;*/
 
-  console.log("before");
-
-
-
-  // Transfer some tokens
-  web3js.eth.getTransactionCount(ownerAddress, (err, txCount) => {
-
+  //await callerContract.methods.setOracleInstanceAdddress(process.env.ORACLEADDRESS).send({ from: ownerAddress });
+  // upon methods couldn't operate in infura... So we have to replace it to below one.
+  await web3js.eth.getTransactionCount(ownerAddress, (err, txCount) => {
     const Tx = require('ethereumjs-tx').Transaction;
     const privateKey1 = Buffer.from(process.env.PRIVATE_KEY, 'hex');
+    let extraData = callerContract.methods.setOracleInstanceAdddress(process.env.ORACLEADDRESS);
+    extraData = extraData.encodeABI();  
     const txObject = {
       nonce:    web3js.utils.toHex(txCount),
       gasLimit: web3js.utils.toHex(800000), // Raise the gas limit to a much higher amount
       gasPrice: web3js.utils.toHex(web3js.utils.toWei('10', 'gwei')),
       to: process.env.CALLERADDRESS,
-      data: callerContract.methods.setOracleInstanceAdddress(process.env.ORACLEADDRESS).send({ from: ownerAddress })
+      data: extraData
     };
-
     const tx = new Tx(txObject, { 'chain' : 'goerli' });
     tx.sign(privateKey1);
-
     const serializedTx = tx.serialize();
     const raw = '0x' + serializedTx.toString('hex');
-
     web3js.eth.sendSignedTransaction(raw, (err, txHash) => {
-      console.log('err:', err, 'txHash:', txHash)
+      console.log('err:', err, 'txHash:', txHash);
       // Use this txHash to find the contract on Etherscan!
     });
   });
 
-
-  //await callerContract.methods.setOracleInstanceAdddress(process.env.ORACLEADDRESS).send({ from: ownerAddress });
   console.log("after");
   setInterval( async () => {
     await callerContract.methods.updateEthPrice().send({ from: ownerAddress });
