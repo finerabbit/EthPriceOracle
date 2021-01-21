@@ -2,8 +2,9 @@ pragma solidity >=0.5.0 <0.6.0;
 
 import "./CallerContractInterface.sol";
 import "./Ownable.sol";
+import "./EthPriceOracleInterface.sol";
 
-contract EthPriceOracle is Ownable {
+contract EthPriceOracle is Ownable, EthPriceOracleInterface {
     
     uint private randNonce = 0;
     uint private modulus = 1000;
@@ -12,7 +13,7 @@ contract EthPriceOracle is Ownable {
     event GetLatestEthPriceEvent(address callerAddress, uint id);
     event SetLatestEthPriceEvent(uint256 ethPrice, address callerAddress);
     
-    function GetLatestEthPrice() public returns(uint256) {
+    function getLatestEthPrice() external returns (uint256) {
         randNonce++;
         uint id = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % modulus;
         pendingRequests[id] = true;

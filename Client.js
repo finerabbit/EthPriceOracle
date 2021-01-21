@@ -37,11 +37,13 @@ async function init () {
   const networkId = await web3js.eth.net.getId();
   const oracleAddress =  OracleJSON.networks[networkId].address;*/
 
+  const Tx = require('ethereumjs-tx').Transaction;
+  const privateKey1 = Buffer.from(process.env.PRIVATE_KEY, 'hex');
   //await callerContract.methods.setOracleInstanceAdddress(process.env.ORACLEADDRESS).send({ from: ownerAddress });
   // upon methods couldn't operate in infura... So we have to replace it to below one.
-  await web3js.eth.getTransactionCount(ownerAddress, (err, txCount) => {
-    const Tx = require('ethereumjs-tx').Transaction;
-    const privateKey1 = Buffer.from(process.env.PRIVATE_KEY, 'hex');
+  let nounceTx = await web3js.eth.getTransactionCount(ownerAddress, (err, txCount) => {
+    //const Tx = require('ethereumjs-tx').Transaction;
+    //const privateKey1 = Buffer.from(process.env.PRIVATE_KEY, 'hex');
     let extraData = callerContract.methods.setOracleInstanceAdddress(process.env.ORACLEADDRESS);
     extraData = extraData.encodeABI();  
     const txObject = {
@@ -51,18 +53,36 @@ async function init () {
       to: process.env.CALLERADDRESS,
       data: extraData
     };
-    const tx = new Tx(txObject, { 'chain' : 'goerli' });
+    let tx = new Tx(txObject, { 'chain' : 'goerli' });
     tx.sign(privateKey1);
-    const serializedTx = tx.serialize();
-    const raw = '0x' + serializedTx.toString('hex');
+    let serializedTx = tx.serialize();
+    let raw = '0x' + serializedTx.toString('hex');
     web3js.eth.sendSignedTransaction(raw, (err, txHash) => {
       console.log('err:', err, 'txHash:', txHash);
       // Use this txHash to find the contract on Etherscan!
     });
   });
 
-  console.log("after");
+  console.log("after", nounceTx);
   setInterval( async () => {
-    await callerContract.methods.updateEthPrice().send({ from: ownerAddress });
+    //await callerContract.methods.updateEthPrice().send({ from: ownerAddress });
+    nounceTx++;
+    let extraData = callerContract.methods.updateEthPrice();
+    extraData = extraData.encodeABI();  
+    const txObject = {
+      nonce:    web3js.utils.toHex(nounceTx),
+      gasLimit: web3js.utils.toHex(800000), // Raise the gas limit to a much higher amount
+      gasPrice: web3js.utils.toHex(web3js.utils.toWei('100', 'gwei')),
+      to: process.env.CALLERADDRESS,
+      data: extraData
+    };
+    let tx = new Tx(txObject, { 'chain' : 'goerli' });
+    tx.sign(privateKey1);
+    let serializedTx = tx.serialize();
+    let raw = '0x' + serializedTx.toString('hex');
+    web3js.eth.sendSignedTransaction(raw, (err, txHash) => {
+      console.log('err:', err, 'txHash:', txHash);
+      // Use this txHash to find the contract on Etherscan!
+    });
   }, 3000);
 })()

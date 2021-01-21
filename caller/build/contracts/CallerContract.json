@@ -3233,15 +3233,196 @@
           ],
           "name": "receivedNewRequestIdEvent",
           "type": "event"
+        },
+        "0xf5f94e204e17a6486b03bd19cf1b9c60f3dcc9197aec1c8d9d00c08adee7c916": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "testID",
+              "type": "uint256"
+            }
+          ],
+          "name": "callerTest",
+          "type": "event"
         }
       },
       "links": {},
-      "address": "0xa16c3260d4d5670D27bE37a78B940C50dFf337AD",
-      "transactionHash": "0x4eaa62c7f92aec690220fff7e3409bfccd4399d2a2f81fd7f42992e682ce85f6"
+      "address": "0xa1C892E41036D2ce90f294305383B8f4165226B6",
+      "transactionHash": "0xd0b7646f74c21fb165c8107bd2681dd787f53ff27ca347b18a3f6415658bb160"
+    },
+    "1611178003703": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0xf5f94e204e17a6486b03bd19cf1b9c60f3dcc9197aec1c8d9d00c08adee7c916": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "testID",
+              "type": "uint256"
+            }
+          ],
+          "name": "callerTest",
+          "type": "event"
+        },
+        "0x441e3b056b114797955165bd03bb8393fc1658a713f09225de4745a8d068bf7d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "oracleAddress",
+              "type": "address"
+            }
+          ],
+          "name": "newOracleAddressEvent",
+          "type": "event"
+        },
+        "0x7dda6c4d82f5a08c8847ea1a4ca36e672ae687d313dacc894a7b6b9a2aaf1327": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "priceUpdatedEvent",
+          "type": "event"
+        },
+        "0x5f0df31d0327643fa1dd320583b974426d24351a677c7dcd9b89362542239af8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "receivedNewRequestIdEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4EB4F08A2a1BfdE28C3374C22c98d42eFCB0Ca8c",
+      "transactionHash": "0xe164b3b51c11f441fc3d8dbc7cfe94f170be629206f8660ddba6bf5d6245f05d"
+    },
+    "1611178793605": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0xf5f94e204e17a6486b03bd19cf1b9c60f3dcc9197aec1c8d9d00c08adee7c916": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "testID",
+              "type": "uint256"
+            }
+          ],
+          "name": "callerTest",
+          "type": "event"
+        },
+        "0x441e3b056b114797955165bd03bb8393fc1658a713f09225de4745a8d068bf7d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "oracleAddress",
+              "type": "address"
+            }
+          ],
+          "name": "newOracleAddressEvent",
+          "type": "event"
+        },
+        "0x7dda6c4d82f5a08c8847ea1a4ca36e672ae687d313dacc894a7b6b9a2aaf1327": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "priceUpdatedEvent",
+          "type": "event"
+        },
+        "0x5f0df31d0327643fa1dd320583b974426d24351a677c7dcd9b89362542239af8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "receivedNewRequestIdEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x2173cA7dE30154A8d056322E3f280586b1dFB320",
+      "transactionHash": "0x8770678631e3fe4e600716af7cd2869bd759c8523c29311ea992de82898012bd"
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-01-14T19:03:49.407Z",
+  "updatedAt": "2021-01-21T20:15:09.208Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {
